@@ -207,7 +207,6 @@ if sys.version_info >= (3, 7):
         tb.tb_next = tb_next
         return tb
 
-
 elif platform.python_implementation() == "PyPy":
     # PyPy might have special support, and won't work with ctypes.
     try:
@@ -228,7 +227,6 @@ elif platform.python_implementation() == "PyPy":
                 return op.delegate()
 
             return tputil.make_proxy(controller, obj=tb)
-
 
 else:
     # Use ctypes to assign tb_next at the C level since it's read-only
